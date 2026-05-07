@@ -7,10 +7,10 @@ sidebar_position: 5
 Use this hook to fetch details about a deployed smart contract, including the ABI and address.
 
 ```ts
-const { data: deployedContractData } = useDeployedContractInfo({ contractName: "YourContract" });
+const { data: deployedContractData } = useDeployedContractInfo({ contractName: "LuckyGuess" });
 ```
 
-This example retrieves the details of the deployed contract with the specified name and stores the details in the `deployedContractData` object.
+This example retrieves the details of the deployed `LuckyGuess` contract bundled with the default template and stores them in the `deployedContractData` object.
 
 ## Configuration
 

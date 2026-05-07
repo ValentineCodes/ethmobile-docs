@@ -7,22 +7,22 @@ sidebar_position: 13
 Use this hook to get a contract instance by providing the contract ABI and address. It enables you to interact with your contract methods for both reading data and sending transactions with integrated transaction signing.
 
 ```ts
-const { data: yourContract } = useContract({
-  abi: YourContractABI,
+const { data: luckyGuess } = useContract({
+  abi: LuckyGuessABI,
   address: "0x...",
 });
 
-// Read contract data
-const result = await yourContract.read.yourReadFunction(["param1", "param2"]);
+// Read contract data (e.g. total bets)
+const total = await luckyGuess.read.totalBets();
 
-// Write to contract with transaction signing
-const tx = await yourContract.write.yourWriteFunction(["param1", "param2"], {
-  value: parseEther("0.1"),
+// Write: payable guess (uint8), send ETH as the bet
+const tx = await luckyGuess.write.guess([3], {
+  value: parseEther("0.01"),
   gasLimit: 300000n,
 });
 ```
 
-This example uses the `useContract` hook to obtain a contract instance for any smart contract, enabling both read and write operations with automatic transaction signing integration.
+This example uses the `useContract` hook with the template **`LuckyGuess`** ABI and address, showing a read and a payable write.
 
 ## Configuration
 

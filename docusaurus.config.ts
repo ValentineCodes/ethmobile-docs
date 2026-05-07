@@ -18,7 +18,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "dewdrip",
-  projectName: "eth-mobile",
+  projectName: "eth-mobile-docs",
 
   onBrokenLinks: "ignore",
   markdown: {
@@ -53,7 +53,7 @@ const config: Config = {
           // sidebarCollapsible: false,
           sidebarCollapsed: true,
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/dewdrip/eth-mobile-docs/edit/main/",
+          editUrl: "https://github.com/eth-mobile/docs/edit/main/",
         },
         blog: false,
         theme: {
@@ -78,12 +78,17 @@ const config: Config = {
       },
       items: [
         {
-          href: "https://github.com/dewdrip/eth-mobile-docs",
+          href: "https://ethmobile.dev",
+          label: "Website",
+          position: "right",
+        },
+        {
+          href: "https://github.com/eth-mobile/docs",
           label: "GitHub Docs",
           position: "right",
         },
         {
-          href: "https://github.com/dewdrip/eth-mobile",
+          href: "https://github.com/eth-mobile/eth-mobile",
           label: "GitHub ETH Mobile",
           position: "right",
         },
@@ -109,12 +114,16 @@ const config: Config = {
           title: "GitHub",
           items: [
             {
+              label: "ETH Mobile Website",
+              href: "https://ethmobile.dev",
+            },
+            {
               label: "ETH Mobile GitHub",
-              href: "https://github.com/dewdrip/eth-mobile",
+              href: "https://github.com/eth-mobile/eth-mobile",
             },
             {
               label: "Docs GitHub",
-              href: "https://github.com/dewdrip/eth-mobile-docs",
+              href: "https://github.com/eth-mobile/docs",
             },
           ],
         },
@@ -123,7 +132,7 @@ const config: Config = {
           items: [
             {
               label: "Twitter",
-              href: "https://twitter.com/dewdrip_com",
+              href: "https://x.com/ethmobile_dev",
             },
           ],
         },

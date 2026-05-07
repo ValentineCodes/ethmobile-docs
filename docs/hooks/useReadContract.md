@@ -7,15 +7,14 @@ sidebar_position: 3
 Use this hook to read public variables and get data from read-only functions of any contract.
 
 ```ts
-const { data: totalCounter } = useReadContract({
-  abi: [YourContractABI],
+const { data: totalBets } = useReadContract({
+  abi: [LuckyGuessABI],
   address: "0xabca6bf26964af9f7eed9e03e53415d37aa90123",
-  functionName: "userGreetingCounter",
-  args: ["0xd8da6bf26964af9d7eed9e03e53415d37aa96045"],
+  functionName: "totalBets",
 });
 ```
 
-This example retrieves the data returned by the `userGreetingCounter` function of the `YourContract` smart contract.
+This example reads the public **`totalBets`** counter from a **`LuckyGuess`**-style contract at `address`.
 
 ## Configuration
 

@@ -8,20 +8,19 @@ Use this hook to get your contract instance by providing the contract name. It e
 For reading data or sending transactions, it's recommended to use `useScaffoldReadContract` and `useScaffoldWriteContract`.
 
 ```ts
-const { data: yourContract } = useScaffoldContract({
-  contractName: "YourContract",
+const { data: luckyGuess } = useScaffoldContract({
+  contractName: "LuckyGuess",
 });
-// Returns the greeting and can be called in any function, unlike useScaffoldReadContract
-await yourContract?.read.greeting();
+// Example read: total bets placed (public uint256)
+const total = await luckyGuess?.read.totalBets();
 
-// Used to write to a contract and can be called in any function
-const setGreeting = async () => {
-  // Call the method in any function
-  await yourContract?.write.setGreeting(["the greeting here"]);
+// Example write: place a guess (1–6) with a payable bet
+const playGuess = async () => {
+  await luckyGuess?.write.guess([3], { value: parseEther("0.01") });
 };
 ```
 
-This example uses the `useScaffoldContract` hook to obtain a contract instance for the `YourContract` smart contract.
+This example uses the `useScaffoldContract` hook to obtain a contract instance for the template **`LuckyGuess`** contract.
 
 ## Configuration
 

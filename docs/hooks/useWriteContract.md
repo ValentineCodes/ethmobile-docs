@@ -7,8 +7,8 @@ sidebar_position: 4
 Use this hook to send a transaction to any smart contract to write data or perform an action.
 
 ```ts
-const { writeYourContractAsync } = useWriteContract({
-  abi: [YourContractABI],
+const { writeGuessAsync } = useWriteContract({
+  abi: [LuckyGuessABI],
   address: "0xabca6bf26964af9f7eed9e03e53415d37aa90123",
 });
 ```
@@ -24,29 +24,29 @@ The following configuration options can be passed to the hook:
 | **blockConfirmations** | `number`   | No       | Number of block confirmations to wait for (default: 1). |
 | **gasLimit**           | `bigint`   | No       | Transaction gas limit.                                  |
 
-To send the transaction, you can call the `writeYourContractAsync` function returned by the hook. Here's an example usage:
+To send the transaction, you can call the `writeGuessAsync` function returned by the hook. Here's an example usage:
 
 ```tsx
 <Button
   onPress={async () => {
     try {
-      await writeYourContractAsync({
-        functionName: "setGreeting",
-        args: ["The value to set"],
-        value: parseEther("0.1"),
+      await writeGuessAsync({
+        functionName: "guess",
+        args: [4],
+        value: parseEther("0.01"),
       });
     } catch (e) {
-      console.error("Error setting greeting:", e);
+      console.error("Error placing guess:", e);
     }
   }}
 >
-  Set Greeting
+  Guess 4
 </Button>
 ```
 
-This example sends a transaction to the `YourContract` smart contract to call the `setGreeting` function with the arguments passed in `args`. The `writeYourContractAsync` function sends the transaction to the smart contract.
+This example calls **`guess`** on a **`LuckyGuess`**-style contract: **`args`** is the number **1–6**, and **`value`** is the bet amount.
 
-Below is the configuration for `writeYourContractAsync` function:
+Below is the configuration for `writeGuessAsync` function:
 
 ## Configuration
 

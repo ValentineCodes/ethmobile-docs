@@ -7,8 +7,8 @@ sidebar_position: 2
 Use this hook to send a transaction to your smart contract to write data or perform an action.
 
 ```ts
-const { write: writeYourContractAsync } = useScaffoldWriteContract({
-  contractName: "YourContract",
+const { write: writeGuessAsync } = useScaffoldWriteContract({
+  contractName: "LuckyGuess",
 });
 ```
 
@@ -22,29 +22,29 @@ The following configuration options can be passed to the hook:
 | **blockConfirmations** | `number` | No       | Number of block confirmations to wait for (default: 1). |
 | **gasLimit**           | `bigint` | No       | Transaction gas limit.                                  |
 
-To send the transaction, you can call the `writeYourContractAsync` function returned by the hook. Here's an example usage:
+To send the transaction, you can call the `writeGuessAsync` function returned by the hook. Here's an example usage:
 
 ```tsx
 <Button
   onPress={async () => {
     try {
-      await writeYourContractAsync({
-        functionName: "setGreeting",
-        args: ["The value to set"],
-        value: parseEther("0.1"),
+      await writeGuessAsync({
+        functionName: "guess",
+        args: [4],
+        value: parseEther("0.01"),
       });
     } catch (e) {
-      console.error("Error setting greeting:", e);
+      console.error("Error placing guess:", e);
     }
   }}
 >
-  Set Greeting
+  Guess 4
 </Button>
 ```
 
-This example sends a transaction to the `YourContract` smart contract to call the `setGreeting` function with the arguments passed in `args`. The `writeYourContractAsync` function sends the transaction to the smart contract.
+This example sends a **`guess`** transaction on **`LuckyGuess`**: pick a number from **1–6**, attach **ETH** as the bet (up to the contract max), and let `writeGuessAsync` broadcast the transaction.
 
-Below is the configuration for `writeYourContractAsync` function:
+Below is the configuration for `writeGuessAsync` function:
 
 ## Configuration
 

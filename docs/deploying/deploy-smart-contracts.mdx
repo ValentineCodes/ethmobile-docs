@@ -57,7 +57,7 @@ The deployer account is the account that will deploy your contracts. Additionall
 You can generate a random account / private key by running:
 
 ```
-yarn generate
+yarn account:generate
 ```
 
 It will automatically add the encrypted private key (`DEPLOYER_PRIVATE_KEY_ENCRYPTED`) in your `.env` file.
@@ -65,7 +65,7 @@ It will automatically add the encrypted private key (`DEPLOYER_PRIVATE_KEY_ENCRY
 You will be prompted to enter a password which will be used to encrypt your private key. **Make sure to remember this password as you'll need it for future deployments and account queries.**
 
 :::info
-We are only storing the plain private key in memory, it's never stored in disk files for security reasons. Checkout the code [here](https://github.com/dewdrip/eth-mobile/blob/main/packages/hardhat/scripts/generateAccount.ts).
+We are only storing the plain private key in memory, it's never stored in disk files for security reasons. Checkout the code [here](https://github.com/eth-mobile/eth-mobile/blob/main/packages/hardhat/scripts/generateAccount.ts).
 :::
 
 If you prefer to import your private key, run:
@@ -84,7 +84,7 @@ You will get prompted to paste your private key and set the encryption password.
 You can generate a new keystore account by running:
 
 ```
-yarn generate
+yarn account:generate
 ```
 
 It will automatically generate a new [keystore](https://book.getfoundry.sh/reference/cast/cast-wallet-import) with random private key.
@@ -206,7 +206,7 @@ Hardhat uses [etherscan-verify from hardhat-deploy](https://www.npmjs.com/packag
 Additionally, **in Hardhat**, there's an alternative method for contract verification. You can use [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify) to verify your contracts, passing in the network name, contract address and constructor arguments (if any):
 
 ```sh
-yarn hardhat-verify --network network_name contract_address "Constructor arg 1"`
+yarn hardhat:hardhat-verify --network network_name contract_address "Constructor arg 1"
 ```
 
 If the chain you're using is not supported by any of the verifying methods, you can add new supported chains to your chosen method, either [etherscan-verify](https://www.npmjs.com/package/hardhat-deploy#options-2) or [hardhat-verify](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-verify#adding-support-for-other-networks).

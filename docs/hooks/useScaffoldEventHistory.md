@@ -12,18 +12,18 @@ const {
   isLoading: isLoadingEvents,
   error: errorReadingEvents,
 } = useScaffoldEventHistory({
-  contractName: "YourContract",
-  eventName: "GreetingChange",
+  contractName: "LuckyGuess",
+  eventName: "Played",
   fromBlock: 31231n,
   watch: true,
-  filters: { greetingSetter: "0x9eB2C4866aAe575bC88d00DE5061d5063a1bb3aF" },
+  filters: { player: "0xd8da6bf26964af9d7eed9e03e53415d37aa96045" },
   blockData: true,
   transactionData: true,
   receiptData: true,
 });
 ```
 
-This example retrieves the historical event logs for the `GreetingChange` event of the `YourContract` smart contract, starting from block number 31231 and filtering events where the `greetingSetter` parameter is `0x9eB2C4866aAe575bC88d00DE5061d5063a1bb3aF`.
+This example loads historical **`Played`** events from **`LuckyGuess`**, starting at block `31231`, optionally watching for new logs, and filtering by the indexed **`player`** field.
 
 ## Configuration
 
